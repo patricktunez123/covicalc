@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.scss";
 
 const Home = () => {
-  return <div>home</div>;
+  return <div className="covicalc--home">this is the hom</div>;
 };
 
 export default Home;
