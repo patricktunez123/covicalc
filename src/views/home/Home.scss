@@ -5,4 +5,17 @@
   height: 70vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .info__up--card {
+    background: $secondaryColor;
+    box-shadow: 0.1rem 0.1rem 1rem $borderColor;
+    width: 50%;
+    position: absolute;
+    bottom: 0;
+    padding: 2rem;
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+  }
 }

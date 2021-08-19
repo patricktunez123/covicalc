@@ -1,6 +1,9 @@
 @import "../../styles/variables.scss";
 
 .covicalc-footer {
+  padding: 2rem 0;
   background: $secondaryColor;
-  padding: $padding-2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
