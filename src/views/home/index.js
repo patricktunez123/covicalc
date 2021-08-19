@@ -16,7 +16,6 @@ const Home = () => {
     (state) => state.Continents
   );
   console.log("coutry data", countriesLoading, countries);
-  console.log("continent data", continentsLoading, continents);
 
   useEffect(() => {
     dispatch(getCountries());
@@ -39,7 +38,7 @@ const Home = () => {
           <span>Cumulatively</span>
         </div>
       </div>
-      <Continents />
+      <Continents loading={continentsLoading} continents={continents} />
       <Me />
       <ContactMe />
     </React.Fragment>

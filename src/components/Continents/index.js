@@ -1,8 +1,32 @@
 import React from "react";
-import ContinentsList from "./ContinentsList";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import ContinentCard from "./ContinentCard";
 import "./Continents.scss";
 
-const Continents = () => {
+const Continents = ({ loading, continents }) => {
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+      paritialVisibilityGutter: 50,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+      paritialVisibilityGutter: 50,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      paritialVisibilityGutter: 0,
+    },
+  };
+
   return (
     <div className="covicalc--continents">
       <div className="info__bottom">
@@ -17,7 +41,23 @@ const Continents = () => {
         </div>
       </div>
       <div className="continents--container">
-        <ContinentsList />
+        {loading ? (
+          <h1>Loading</h1>
+        ) : (
+          <Carousel
+            partialVisible={true}
+            centerMode={false}
+            arrows
+            slidesToSlide={1}
+            itemClass="image-item"
+            responsive={responsive}
+          >
+            {continents &&
+              continents.map((continent) => (
+                <ContinentCard key={continent?.continent} {...continent} />
+              ))}
+          </Carousel>
+        )}
       </div>
     </div>
   );

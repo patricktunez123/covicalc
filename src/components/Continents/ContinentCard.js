@@ -1,39 +1,49 @@
 import React from "react";
 
-const Continent = () => {
+const ContinentCard = ({
+  continent,
+  cases,
+  todayCases,
+  todayDeaths,
+  deaths,
+  todayRecovered,
+  recovered,
+  testsPerOneMillion,
+  tests,
+}) => {
   return (
     <div className="covicalc--c-card">
       <div className="left">
         <div className="name">
-          <h5>AFRICA</h5>
+          <h5>{continent}</h5>
         </div>
         <div className="cases">
-          <h5>11,270</h5>
+          <h5>{todayCases}</h5>
           <span>New cases</span>
         </div>
         <div className="all--cases">
-          <span>All cases: 22,123,345</span>
+          <span>All cases: {cases}</span>
         </div>
       </div>
       <div className="right">
         <div className="deaths">
-          <h5>619</h5>
+          <h5>{todayDeaths}</h5>
           <span>New deaths</span>
-          <span>Total deaths: 4,345</span>
+          <span>Total deaths: {deaths}</span>
         </div>
         <div className="recovered">
-          <h5>12,955</h5>
+          <h5>{todayRecovered}</h5>
           <span>Newly recovered</span>
-          <span>Total recovered: 12,234,345</span>
+          <span>Total recovered: {recovered}</span>
         </div>
         <div className="vaccinated">
-          <h5>1,878,364</h5>
+          <h5>{testsPerOneMillion}</h5>
           <span>New vaccinated</span>
-          <span>Total vaccinated: 14,345, 789</span>
+          <span>Total vaccinated: {tests}</span>
         </div>
       </div>
     </div>
   );
 };
 
-export default Continent;
+export default ContinentCard;
