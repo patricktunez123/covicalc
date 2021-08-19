@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="covicalc-footer">
       <div>
-        <span className="covicalc--text covicalc--text-muted covicalc--text-light">
+        <span className="covicalc--text covicalc--text-dark  covicalc--text-light">
           Developed by
         </span>{" "}
         <a
@@ -18,7 +18,7 @@ const Footer = () => {
         </a>
       </div>
       <div>
-        <span className="covicalc--text covicalc--text-muted covicalc--text-light">
+        <span className="covicalc--text covicalc--text-dark  covicalc--text-light">
           Designed by
         </span>{" "}
         <a

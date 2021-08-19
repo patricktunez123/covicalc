@@ -16,7 +16,7 @@ const Home = () => {
   const { loading: countriesLoading, data: countries } = useSelector(
     (state) => state.Countries
   );
-  console.log("this is the ", countries);
+
   const { loading: countryLoading, data: country } = useSelector(
     (state) => state.Country
   );
@@ -52,12 +52,12 @@ const Home = () => {
       <div className="covicalc--home">
         <div className="search--container">
           <h1 className="covicalc--title covicalc--text-white ">Updates</h1>
-          <span className="covicalc--text covicalc--text-muted covicalc--text-light covicalc--mb-1">
+          <span className="covicalc--text covicalc--text-dark  covicalc--text-light covicalc--mb-1">
             Search a country
           </span>
           <div className="covicalc--mb-2">
             {countriesLoading ? (
-              "loading"
+              "Wait..."
             ) : (
               <div className="covicalc--search--input">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Rwanda.svg/255px-Flag_of_Rwanda.svg.png" />
@@ -77,25 +77,117 @@ const Home = () => {
                     ))}
                   </select>
                 </form>
-                <DatePicker />
-                <Button className="covicalc--secondary-btn">Submit</Button>
+                <DatePicker className="small--devices" />
+                <Button className="covicalc--secondary-btn small--devices">
+                  Submit
+                </Button>
               </div>
             )}
           </div>
         </div>
-        <div className="info__up--card">
-          <h1 className="covicalc--large--text covicalc--text-green covicalc--text-light covicalc--mb-1">
-            {countryLoading ? (
-              <Spin />
-            ) : (
-              country?.cases && numberWithCommas(country?.cases)
+
+        <div className="country--stats-cards">
+          <div className="card-top">
+            <h1 className="covicalc--large--text covicalc--text-green covicalc--text-light covicalc--mb-1">
+              {countryLoading ? (
+                <Spin />
+              ) : (
+                country?.cases && numberWithCommas(country?.cases)
+              )}
+            </h1>
+            {!countryLoading && (
+              <span className="covicalc--text covicalc--text-white covicalc--text-bold">
+                Cumulatively
+              </span>
             )}
-          </h1>
-          {!countryLoading && (
-            <span className="covicalc--text covicalc--text-white covicalc--text-bold">
-              Cumulatively
-            </span>
-          )}
+          </div>
+          <div className="card-bottom">
+            {countryLoading ? (
+              <div className="wait--loader">
+                <span>Wait...</span>
+              </div>
+            ) : (
+              <>
+                <div className="info">
+                  <h1 className="covicalc--text-green covicalc--text-light covicalc--medium--text covicalc--mb-small">
+                    {country?.testsPerOneMillion &&
+                      numberWithCommas(country?.testsPerOneMillion)}
+                  </h1>
+                  <span className="covicalc--text-black covicalc--text-bold covicalc--text covicalc--mb-small">
+                    Tests
+                  </span>
+                  <span className="text-muted covicalc--text-light covicalc--text">
+                    {country?.tests && numberWithCommas(country?.tests)}
+                  </span>
+                </div>
+
+                <div className="info">
+                  <h1 className="covicalc--text-green covicalc--text-light covicalc--medium--text covicalc--mb-small">
+                    {country?.active && numberWithCommas(country?.active)}
+                  </h1>
+                  <span className="covicalc--text-black covicalc--text-bold covicalc--text covicalc--mb-small">
+                    Postive cases
+                  </span>
+                  <span className="text-muted covicalc--text-light covicalc--text">
+                    {country?.cases && numberWithCommas(country?.cases)}
+                  </span>
+                </div>
+
+                <div className="info">
+                  <h1 className="covicalc--text-green covicalc--text-light covicalc--medium--text covicalc--mb-small">
+                    {country?.activePerOneMillion &&
+                      numberWithCommas(country?.activePerOneMillion)}
+                  </h1>
+                  <span className="covicalc--text-black covicalc--text-bold covicalc--text covicalc--mb-small">
+                    Hospitalized
+                  </span>
+                  <span className="text-muted covicalc--text-light covicalc--text">
+                    {country?.critical && numberWithCommas(country?.critical)}
+                  </span>
+                </div>
+
+                <div className="info">
+                  <h1 className="covicalc--text-green covicalc--text-light covicalc--medium--text covicalc--mb-small">
+                    {country?.todayRecovered &&
+                      numberWithCommas(country?.todayRecovered)}
+                  </h1>
+                  <span className="covicalc--text-black covicalc--text-bold covicalc--text covicalc--mb-small">
+                    Recovered
+                  </span>
+                  <span className="text-muted covicalc--text-light covicalc--text">
+                    {country?.recovered && numberWithCommas(country?.recovered)}
+                  </span>
+                </div>
+
+                <div className="info">
+                  <h1 className="covicalc--text-green covicalc--text-light covicalc--medium--text covicalc--mb-small">
+                    {country?.todayDeaths &&
+                      numberWithCommas(country?.todayDeaths)}
+                  </h1>
+                  <span className="covicalc--text-black covicalc--text-bold covicalc--text covicalc--mb-small">
+                    Deaths
+                  </span>
+                  <span className="text-muted covicalc--text-light covicalc--text">
+                    {country?.deaths && numberWithCommas(country?.deaths)}
+                  </span>
+                </div>
+
+                <div className="info">
+                  <h1 className="covicalc--text-green covicalc--text-light covicalc--medium--text covicalc--mb-small">
+                    {country?.oneTestPerPeople &&
+                      numberWithCommas(country?.oneTestPerPeople)}
+                  </h1>
+                  <span className="covicalc--text-black covicalc--text-bold covicalc--text covicalc--mb-small">
+                    Vaccinated
+                  </span>
+                  <span className="text-muted covicalc--text-light covicalc--text">
+                    {country?.testsPerOneMillion &&
+                      numberWithCommas(country?.testsPerOneMillion)}
+                  </span>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
       <Continents

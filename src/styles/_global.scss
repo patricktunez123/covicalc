@@ -70,7 +70,9 @@ body {
 .covicalc--text-muted {
   color: $muteColor;
 }
-
+.covicalc--text-dark {
+  color: $darkWhite;
+}
 .covicalc--link-primary {
   &:hover {
     color: $whiteColor;
@@ -99,7 +101,15 @@ body {
 .covicalc--mb-small {
   margin-bottom: 0.3rem;
 }
+.covicalc--mb-large {
+  margin-bottom: 4rem;
+}
 
+.ant-picker-input {
+  input {
+    border: 0px;
+  }
+}
 ::-webkit-scrollbar {
   width: 0.5em;
 }
@@ -114,4 +124,20 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #cfc8c8;
+}
+
+@media screen and (max-width: $breakpoint-small),
+  (max-width: $breakpoint-medium) {
+  .small--devices {
+    display: none;
+  }
+  .covicalc--title {
+    font-size: 1rem;
+  }
+  .covicalc--large--text {
+    font-size: 1.5rem;
+  }
+  .covicalc--medium--text {
+    font-size: 1rem;
+  }
 }

@@ -3,7 +3,7 @@ import { Button } from "antd";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
 
-const Nav = () => {
+const Nav = ({ goToContact }) => {
   return (
     <div className="covicalc--nav">
       <div className="logo">
@@ -14,8 +14,9 @@ const Nav = () => {
       <div>
         <Button
           size="large"
-          className="covicalc--primary-btn covicalc--text"
+          className="covicalc--primary-btn covicalc--text small--devices"
           type="primary"
+          onClick={goToContact}
         >
           Contact
         </Button>

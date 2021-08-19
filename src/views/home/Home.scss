@@ -2,10 +2,12 @@
 
 .covicalc--home {
   background: $primaryColor;
-  height: 70vh;
+  min-height: 60vh;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  flex-direction: column;
   position: relative;
   .search--container {
     display: flex;
@@ -14,21 +16,45 @@
     flex-direction: column;
     width: 100%;
   }
-
-  .info__up--card {
-    background: $secondaryColor;
-    box-shadow: 0.1rem 0.1rem 1rem $borderColor;
-    width: 50%;
-    min-height: 10rem;
-    position: absolute;
-    bottom: 0;
-    padding: 2rem;
-    border-top-left-radius: $borderRadius;
-    border-top-right-radius: $borderRadius;
+  .country--stats-cards {
+    width: 100%;
+    min-height: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    .card-top {
+      background: $secondaryColor;
+      min-width: 55rem;
+      min-height: 10rem;
+      margin-top: 2rem;
+      border-top-right-radius: 0.5rem;
+      border-top-left-radius: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 0 1rem;
+    }
+    .card-bottom {
+      background: inherit;
+      min-width: 55rem;
+      min-height: 10rem;
+      margin-bottom: -10rem;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border-bottom-right-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1.2rem;
+      .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+    }
   }
 }
 
@@ -54,8 +80,30 @@
   .select--country {
     -webkit-appearance: menulist-button;
     border: none;
+    width: 100%;
     &:focus {
       border: 0px;
+    }
+    option {
+      color: $muteColor;
+      border: 0.2rem solid $borderColor;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-small),
+  (max-width: $breakpoint-medium) {
+  .covicalc--home {
+    .country--stats-cards {
+      .card-top {
+        background: $secondaryColor;
+        min-width: 100%;
+      }
+      .card-bottom {
+        min-width: 100%;
+        flex-direction: column;
+        background: $primaryColor;
+      }
     }
   }
 }

@@ -42,3 +42,18 @@
     }
   }
 }
+
+@media screen and (max-width: $breakpoint-small),
+  (max-width: $breakpoint-medium) {
+  .tunez--app {
+    flex-direction: column;
+    .left {
+      display: none;
+    }
+    .right {
+      .right--content {
+        align-items: center;
+      }
+    }
+  }
+}
