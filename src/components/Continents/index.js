@@ -7,9 +7,13 @@ const Continents = () => {
     <div className="covicalc--continents">
       <div className="info__bottom">
         <div className="info__bottom--card">
-          text tkajsdf aksdfj ak kajdf kaj fdaj dsfkj adksfj kajsdf ad sfkja
-          dfkj akdsjf kajsd fkja sdkfj aksdjf kajsd fkja ksdfj kajsdf kajs dkfj
-          aksdjf kajsdf kajs dkfja ksdfj kasdjf kjasdkfj ksdk
+          {[...Array(6)].map((_, index) => (
+            <div key={index} className="info">
+              <h1>11,234</h1>
+              <span className="section-sub-title">Tests</span>
+              <span className="text-muted">2,234,234</span>
+            </div>
+          ))}
         </div>
       </div>
       <div className="continents--container">

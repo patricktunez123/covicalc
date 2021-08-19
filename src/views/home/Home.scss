@@ -7,15 +7,41 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  .search--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    h1 {
+      font-size: 3rem;
+      color: $whiteColor;
+    }
+    span {
+      color: $whiteColor;
+      font-size: 1rem;
+    }
+  }
 
   .info__up--card {
     background: $secondaryColor;
     box-shadow: 0.1rem 0.1rem 1rem $borderColor;
     width: 50%;
+    min-height: 10rem;
     position: absolute;
     bottom: 0;
     padding: 2rem;
     border-top-left-radius: $borderRadius;
     border-top-right-radius: $borderRadius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1 {
+      color: $primaryColor;
+    }
+    span {
+      color: $whiteColor;
+    }
   }
 }
