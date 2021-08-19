@@ -1,11 +1,24 @@
 @import "../styles/variables.scss";
 
-.covicalc--primary-btn {
+.covicalc--primary-btn,
+.covicalc--secondary-btn {
   background: $secondaryColor;
   border: none;
   text-transform: uppercase;
+  color: $whiteColor;
+}
+
+.covicalc--primary-btn {
   &:hover,
   &:focus {
     background: #2b998e;
+  }
+}
+
+.covicalc--secondary-btn {
+  &:hover,
+  &:focus {
+    background: #2b998e;
+    color: $whiteColor;
   }
 }

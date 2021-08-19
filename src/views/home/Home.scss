@@ -31,3 +31,31 @@
     flex-direction: column;
   }
 }
+
+.covicalc--search--input {
+  width: 100%;
+  height: 2rem;
+  background: $whiteColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem;
+  column-gap: 0.5rem;
+  border-radius: 0.3rem;
+  &,
+  .select--country {
+    height: 2.5rem;
+  }
+  img {
+    height: 100%;
+    width: 4rem;
+    object-fit: cover;
+  }
+  .select--country {
+    -webkit-appearance: menulist-button;
+    border: none;
+    &:focus {
+      border: 0px;
+    }
+  }
+}

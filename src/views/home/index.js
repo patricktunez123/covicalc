@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Spin } from "antd";
+import { Spin, DatePicker, Button } from "antd";
 import ContactMe from "../../components/ContactMe";
 import Continents from "../../components/Continents";
 import Me from "../../components/Me";
@@ -16,7 +16,7 @@ const Home = () => {
   const { loading: countriesLoading, data: countries } = useSelector(
     (state) => state.Countries
   );
-
+  console.log("this is the ", countries);
   const { loading: countryLoading, data: country } = useSelector(
     (state) => state.Country
   );
@@ -55,26 +55,32 @@ const Home = () => {
           <span className="covicalc--text covicalc--text-muted covicalc--text-light covicalc--mb-1">
             Search a country
           </span>
-          <div className="input covicalc--mb-2">
-            <form>
-              {countriesLoading ? (
-                "loading"
-              ) : (
-                <select
-                  onChange={(e) => handleChange(e)}
-                  data-live-search="true"
-                >
-                  {countries?.map((country) => (
-                    <option
-                      key={country?.country}
-                      data-tokens={country?.country}
-                    >
-                      {country?.country}
-                    </option>
-                  ))}
-                </select>
-              )}
-            </form>
+          <div className="covicalc--mb-2">
+            {countriesLoading ? (
+              "loading"
+            ) : (
+              <div className="covicalc--search--input">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Rwanda.svg/255px-Flag_of_Rwanda.svg.png" />
+                <form>
+                  <select
+                    onChange={(e) => handleChange(e)}
+                    data-live-search="true"
+                    className="select--country"
+                  >
+                    {countries?.map((country) => (
+                      <option
+                        key={country?.country}
+                        data-tokens={country?.country}
+                      >
+                        {country?.country}
+                      </option>
+                    ))}
+                  </select>
+                </form>
+                <DatePicker />
+                <Button className="covicalc--secondary-btn">Submit</Button>
+              </div>
+            )}
           </div>
         </div>
         <div className="info__up--card">
