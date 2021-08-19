@@ -6,11 +6,13 @@ const Nav = () => {
   return (
     <div className="covicalc--nav">
       <div className="logo">
-        <h1>covicalc</h1>
+        <h1 className="section-title">covicalc</h1>
       </div>
-      <Button className="covicalc--primary-btn" type="primary">
-        Contact
-      </Button>
+      <div>
+        <Button size="large" className="covicalc--primary-btn" type="primary">
+          Contact
+        </Button>
+      </div>
     </div>
   );
 };
