@@ -1,6 +1,12 @@
 import { continentActionTypes } from "../../actionTypes";
 import request from "../../../helpers/api";
 
+/**
+ * A function to get all continents and their stats
+ * @author Patrick TUNEZERWANE
+ * @since Sun, August 22, 2021
+ */
+
 export const getContinents = () => async (dispatch) => {
   try {
     dispatch({

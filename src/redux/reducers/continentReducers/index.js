@@ -6,6 +6,12 @@ const initialState = {
   errorMessage: null,
 };
 
+/**
+ * A reducer for getting all Continents and their infos
+ * @author Patrick TUNEZERWANE
+ * @since Sun, August 22, 2021
+ */
+
 export const getContinents = (prevState = initialState, { type, payload }) => {
   switch (type) {
     case continentActionTypes.GET_CONTINENTS_REQUEST:

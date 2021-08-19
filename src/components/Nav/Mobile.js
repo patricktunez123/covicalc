@@ -11,10 +11,10 @@ const Mobile = () => {
           <span className="text-muted">Home</span>
         </div>
       </Link>
-      <Link to="/search/id">
+      <Link to="/">
         <div className="menu__items">
           <AiOutlineMail className="icon" />
-          <span className="text-muted">Search</span>
+          <span className="text-muted">Contact</span>
         </div>
       </Link>
     </div>

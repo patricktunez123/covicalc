@@ -6,6 +6,11 @@ const initialState = {
   errorMessage: null,
 };
 
+/**
+ * A reducer for getting all Countries and their infos
+ * @author Patrick TUNEZERWANE
+ * @since Sun, August 22, 2021
+ */
 export const getCountries = (prevState = initialState, { type, payload }) => {
   switch (type) {
     case countryActionTypes.GET_COUNTRIES_REQUEST:
@@ -31,6 +36,11 @@ export const getCountries = (prevState = initialState, { type, payload }) => {
   }
 };
 
+/**
+ * A reducer for getting one country and its' infos
+ * @author Patrick TUNEZERWANE
+ * @since Sun, August 22, 2021
+ */
 export const getCountry = (prevState = initialState, { type, payload }) => {
   switch (type) {
     case countryActionTypes.GET_COUNTRY_REQUEST:

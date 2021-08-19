@@ -1,6 +1,11 @@
 import { countryActionTypes } from "../../actionTypes";
 import request from "../../../helpers/api";
 
+/**
+ * A function to get all Countries and their stats
+ * @author Patrick TUNEZERWANE
+ * @since Sun, August 22, 2021
+ */
 export const getCountries = () => async (dispatch) => {
   try {
     dispatch({
@@ -20,6 +25,11 @@ export const getCountries = () => async (dispatch) => {
   }
 };
 
+/**
+ * A function to get one Country by search for country name and its stats
+ * @author Patrick TUNEZERWANE
+ * @since Sun, August 22, 2021
+ */
 export const getCountry = (query) => async (dispatch) => {
   try {
     dispatch({

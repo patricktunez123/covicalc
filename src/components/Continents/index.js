@@ -14,7 +14,7 @@ const Continents = ({ loading, continents, countryLoading, country }) => {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 2,
-      paritialVisibilityGutter: 39,
+      paritialVisibilityGutter: 50,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -48,6 +48,7 @@ const Continents = ({ loading, continents, countryLoading, country }) => {
           arrows
           slidesToSlide={1}
           itemClass="image-item"
+          className="covicalc--slide"
           responsive={responsive}
         >
           {continents &&

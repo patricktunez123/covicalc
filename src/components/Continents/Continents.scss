@@ -30,7 +30,7 @@
     justify-content: space-between;
     .left,
     .right {
-      height: 100%;
+      min-height: 100%;
       flex: 1;
     }
     .left {
@@ -50,9 +50,12 @@
       border-top-right-radius: $borderRadius;
       border-bottom-right-radius: $borderRadius;
       .deaths,
+      .recovered {
+        border-bottom: 0.1rem solid $secondaryColor;
+      }
+      .deaths,
       .recovered,
       .vaccinated {
-        border-bottom: 0.1rem solid $secondaryColor;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -75,6 +78,10 @@
   }
 }
 
+.covicalc--slide {
+  background: $whiteColor;
+  padding: 2rem 0;
+}
 @media screen and (max-width: $breakpoint-small),
   (max-width: $breakpoint-medium) {
   .covicalc--c-card {
