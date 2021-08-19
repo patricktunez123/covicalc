@@ -3,22 +3,34 @@ import { useDispatch, useSelector } from "react-redux";
 import ContactMe from "../../components/ContactMe";
 import Continents from "../../components/Continents";
 import Me from "../../components/Me";
-import { getCountries } from "../../redux/actions/countriesActions";
+import { getCountries, getCountry } from "../../redux/actions/countryActions";
 import { getContinents } from "../../redux/actions/continentActions";
 import "./Home.scss";
 
 const Home = () => {
   const dispatch = useDispatch();
+
   const { loading: countriesLoading, data: countries } = useSelector(
     (state) => state.Countries
   );
+
+  const { loading: countryLoading, data: country } = useSelector(
+    (state) => state.Country
+  );
+
   const { loading: continentsLoading, data: continents } = useSelector(
     (state) => state.Continents
   );
-  console.log("coutry data", countriesLoading, countries);
+
+  console.log("coutries data====>", countriesLoading, countries);
+  console.log("coutry data ****>>", countryLoading, country);
 
   useEffect(() => {
     dispatch(getCountries());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getCountry("rwanda"));
   }, [dispatch]);
 
   useEffect(() => {
@@ -34,11 +46,16 @@ const Home = () => {
           <div className="input">input goes here</div>
         </div>
         <div className="info__up--card">
-          <h1>2,188,881</h1>
+          <h1>{countryLoading ? "loading" : country?.cases}</h1>
           <span>Cumulatively</span>
         </div>
       </div>
-      <Continents loading={continentsLoading} continents={continents} />
+      <Continents
+        loading={continentsLoading}
+        continents={continents}
+        countryLoading={countryLoading}
+        country={country}
+      />
       <Me />
       <ContactMe />
     </React.Fragment>

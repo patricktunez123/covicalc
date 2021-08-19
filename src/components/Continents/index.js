@@ -2,9 +2,10 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ContinentCard from "./ContinentCard";
+import { numberWithCommas } from "../../helpers/numbersFormatter";
 import "./Continents.scss";
 
-const Continents = ({ loading, continents }) => {
+const Continents = ({ loading, continents, countryLoading, country }) => {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -31,13 +32,75 @@ const Continents = ({ loading, continents }) => {
     <div className="covicalc--continents">
       <div className="info__bottom">
         <div className="info__bottom--card">
-          {[...Array(6)].map((_, index) => (
-            <div key={index} className="info">
-              <h1>11,234</h1>
-              <span className="section-sub-title">Tests</span>
-              <span className="text-muted">2,234,234</span>
-            </div>
-          ))}
+          {countryLoading ? (
+            "loading"
+          ) : (
+            <>
+              <div className="info">
+                <h1>
+                  {country?.testsPerOneMillion &&
+                    numberWithCommas(country?.testsPerOneMillion)}
+                </h1>
+                <span className="section-sub-title">Tests</span>
+                <span className="text-muted">
+                  {country?.tests && numberWithCommas(country?.tests)}
+                </span>
+              </div>
+
+              <div className="info">
+                <h1>{country?.active && numberWithCommas(country?.active)}</h1>
+                <span className="section-sub-title">Postive cases</span>
+                <span className="text-muted">
+                  {country?.cases && numberWithCommas(country?.cases)}
+                </span>
+              </div>
+
+              <div className="info">
+                <h1>
+                  {country?.activePerOneMillion &&
+                    numberWithCommas(country?.activePerOneMillion)}
+                </h1>
+                <span className="section-sub-title">Hospitalized</span>
+                <span className="text-muted">
+                  {country?.critical && numberWithCommas(country?.critical)}
+                </span>
+              </div>
+
+              <div className="info">
+                <h1>
+                  {country?.todayRecovered &&
+                    numberWithCommas(country?.todayRecovered)}
+                </h1>
+                <span className="section-sub-title">Recovered</span>
+                <span className="text-muted">
+                  {country?.recovered && numberWithCommas(country?.recovered)}
+                </span>
+              </div>
+
+              <div className="info">
+                <h1>
+                  {country?.todayDeaths &&
+                    numberWithCommas(country?.todayDeaths)}
+                </h1>
+                <span className="section-sub-title">Deaths</span>
+                <span className="text-muted">
+                  {country?.deaths && numberWithCommas(country?.deaths)}
+                </span>
+              </div>
+
+              <div className="info">
+                <h1>
+                  {country?.oneTestPerPeople &&
+                    numberWithCommas(country?.oneTestPerPeople)}
+                </h1>
+                <span className="section-sub-title">Vaccinated</span>
+                <span className="text-muted">
+                  {country?.testsPerOneMillion &&
+                    numberWithCommas(country?.testsPerOneMillion)}
+                </span>
+              </div>
+            </>
+          )}
         </div>
       </div>
       <div className="continents--container">

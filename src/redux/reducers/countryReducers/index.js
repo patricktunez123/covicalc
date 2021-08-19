@@ -30,3 +30,28 @@ export const getCountries = (prevState = initialState, { type, payload }) => {
       return prevState;
   }
 };
+
+export const getCountry = (prevState = initialState, { type, payload }) => {
+  switch (type) {
+    case countryActionTypes.GET_COUNTRY_REQUEST:
+      return {
+        ...prevState,
+        loading: true,
+      };
+    case countryActionTypes.GET_COUNTRY_SUCCESS:
+      return {
+        ...prevState,
+        loading: false,
+        data: payload,
+      };
+    case countryActionTypes.GET_COUNTRY_FAIL:
+      return {
+        ...prevState,
+        loading: false,
+        errorMessage: payload,
+      };
+
+    default:
+      return prevState;
+  }
+};

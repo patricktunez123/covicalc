@@ -19,3 +19,22 @@ export const getCountries = () => async (dispatch) => {
     });
   }
 };
+
+export const getCountry = (query) => async (dispatch) => {
+  try {
+    dispatch({
+      type: countryActionTypes.GET_COUNTRY_REQUEST,
+    });
+
+    const country = await request.get(`/countries/${query}`);
+    dispatch({
+      type: countryActionTypes.GET_COUNTRY_SUCCESS,
+      payload: country?.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: countryActionTypes.GET_COUNTRY_FAIL,
+      payload: error,
+    });
+  }
+};
