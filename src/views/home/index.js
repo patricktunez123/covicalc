@@ -4,15 +4,26 @@ import ContactMe from "../../components/ContactMe";
 import Continents from "../../components/Continents";
 import Me from "../../components/Me";
 import { getCountries } from "../../redux/actions/countriesActions";
+import { getContinents } from "../../redux/actions/continentActions";
 import "./Home.scss";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { loading, data } = useSelector((state) => state.Countries);
-  console.log("data", loading, data);
+  const { loading: countriesLoading, data: countries } = useSelector(
+    (state) => state.Countries
+  );
+  const { loading: continentsLoading, data: continents } = useSelector(
+    (state) => state.Continents
+  );
+  console.log("coutry data", countriesLoading, countries);
+  console.log("continent data", continentsLoading, continents);
 
   useEffect(() => {
     dispatch(getCountries());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getContinents());
   }, [dispatch]);
 
   return (
