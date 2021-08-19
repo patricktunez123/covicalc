@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ContactMe from "../../components/ContactMe";
 import Continents from "../../components/Continents";
 import Me from "../../components/Me";
+import { getCountries } from "../../redux/actions/countriesActions";
 import "./Home.scss";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { loading, data } = useSelector((state) => state.Countries);
+  console.log("data", loading, data);
+
+  useEffect(() => {
+    dispatch(getCountries());
+  }, [dispatch]);
+
   return (
     <React.Fragment>
       <div className="covicalc--home">
