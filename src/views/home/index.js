@@ -29,6 +29,7 @@ const Home = () => {
     setSelectedCountry(e.target.value);
   };
 
+  console.log("====>", countries);
   useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
@@ -60,7 +61,10 @@ const Home = () => {
               "Wait..."
             ) : (
               <div className="covicalc--search--input">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Rwanda.svg/255px-Flag_of_Rwanda.svg.png" />
+                <img
+                  alt=""
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Flag_of_Afghanistan_%282013%E2%80%932021%29.svg/800px-Flag_of_Afghanistan_%282013%E2%80%932021%29.svg.png"
+                />
                 <form>
                   <select
                     onChange={(e) => handleChange(e)}
