@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 .tunez--app {
-  height: 80vh;
+  height: 100vh;
   background: $darkWhite;
   display: flex;
   justify-content: space-between;
@@ -34,6 +34,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    .right--content {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+    }
   }
 }

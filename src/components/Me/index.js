@@ -1,4 +1,5 @@
 import React from "react";
+import { Skills } from "./Skills";
 import "./Me.scss";
 
 const Me = () => {
@@ -6,11 +7,24 @@ const Me = () => {
     <div className="tunez--app">
       <div className="left"></div>
       <div className="right">
-        <h5 className="section-title">Patrick TUNEZERWANE</h5>
-        <h6 className="section-sub-title">Skills</h6>
-        {[...Array(4)].map((_, index) => (
-          <span key={index}>Skill title</span>
-        ))}
+        <div className="right--content">
+          <h5 className="covicalc--title covicalc--mb-2 covicalc--text-black">
+            Patrick TUNEZERWANE
+          </h5>
+          <h6 className="covicalc--text-bold covicalc--mb-1">Skills</h6>
+          {Skills.map((skill) => (
+            <span key={skill.id}>
+              <a
+                className="covicalc--text covicalc--text-muted covicalc--link-secondary covicalc--text-light"
+                href={skill.url}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {skill.skill}
+              </a>
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -4,8 +4,8 @@
   background: $secondaryColor;
   border: none;
   text-transform: uppercase;
-  color: $whiteColor;
-  &:hover {
+  &:hover,
+  &:focus {
     background: #2b998e;
   }
 }

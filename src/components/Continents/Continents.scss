@@ -4,6 +4,11 @@
   min-height: 100vh;
   width: 100%;
   position: relative;
+  .section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .info__bottom {
     position: relative;
     width: 100%;
@@ -23,14 +28,17 @@
       justify-content: space-between;
       align-items: center;
       column-gap: 2rem;
+      .wait--loader {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .info {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        h1 {
-          color: $primaryColor;
-        }
       }
     }
   }
@@ -80,9 +88,6 @@
           align-items: center;
           flex-direction: column;
           padding: 1rem;
-          span {
-            font-size: 0.8rem;
-          }
         }
       }
 

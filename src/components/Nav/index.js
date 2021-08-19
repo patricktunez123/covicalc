@@ -6,10 +6,14 @@ const Nav = () => {
   return (
     <div className="covicalc--nav">
       <div className="logo">
-        <h1 className="section-title">covicalc</h1>
+        <h1 className="covicalc--title covicalc--text-white ">covicalc</h1>
       </div>
       <div>
-        <Button size="large" className="covicalc--primary-btn" type="primary">
+        <Button
+          size="large"
+          className="covicalc--primary-btn covicalc--text"
+          type="primary"
+        >
           Contact
         </Button>
       </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Spin } from "antd";
 import ContactMe from "../../components/ContactMe";
 import Continents from "../../components/Continents";
 import Me from "../../components/Me";
@@ -50,9 +51,11 @@ const Home = () => {
     <React.Fragment>
       <div className="covicalc--home">
         <div className="search--container">
-          <h1 className="section-title">Updates</h1>
-          <span>Search a country</span>
-          <div className="input">
+          <h1 className="covicalc--title covicalc--text-white ">Updates</h1>
+          <span className="covicalc--text covicalc--text-muted covicalc--text-light covicalc--mb-1">
+            Search a country
+          </span>
+          <div className="input covicalc--mb-2">
             <form>
               {countriesLoading ? (
                 "loading"
@@ -75,12 +78,18 @@ const Home = () => {
           </div>
         </div>
         <div className="info__up--card">
-          <h1>
-            {countryLoading
-              ? "loading"
-              : country?.cases && numberWithCommas(country?.cases)}
+          <h1 className="covicalc--large--text covicalc--text-green covicalc--text-light covicalc--mb-1">
+            {countryLoading ? (
+              <Spin />
+            ) : (
+              country?.cases && numberWithCommas(country?.cases)
+            )}
           </h1>
-          <span>Cumulatively</span>
+          {!countryLoading && (
+            <span className="covicalc--text covicalc--text-white covicalc--text-bold">
+              Cumulatively
+            </span>
+          )}
         </div>
       </div>
       <Continents
