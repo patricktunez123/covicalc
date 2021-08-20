@@ -1,4 +1,32 @@
+@import "../../styles/variables.scss";
+
 .covicalc--continents {
-  height: 90vh;
+  min-height: 90vh;
   width: 100%;
+  position: relative;
+  .info__bottom {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .info__bottom--card {
+      box-shadow: 0.1rem 0.1rem 1rem $borderColor;
+      width: 50%;
+      position: absolute;
+      top: 0;
+      padding: 2rem;
+      border-bottom-left-radius: $borderRadius;
+      border-bottom-right-radius: $borderRadius;
+    }
+  }
+  .continents--container {
+    height: auto;
+    padding-bottom: 2rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
 }
