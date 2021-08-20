@@ -1,6 +1,7 @@
 import React, { Fragment, Suspense } from "react";
 import { Route, Switch } from "react-router-dom";
 import { Spin } from "antd";
+import Layout from "./components/Layout";
 
 const Home = React.lazy(() => import("./views/home"));
 const Error404 = React.lazy(() => import("./views/error404"));
@@ -24,11 +25,15 @@ function App() {
       >
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Layout>
+              <Home />
+            </Layout>
           </Route>
 
           <Route>
-            <Error404 />
+            <Layout>
+              <Error404 />
+            </Layout>
           </Route>
         </Switch>
       </Suspense>
