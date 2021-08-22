@@ -1,16 +1,26 @@
 import React from "react";
 import { Button } from "antd";
+import { Link } from "react-router-dom";
 import "./Nav.scss";
 
-const Nav = () => {
+const Nav = ({ goToContact }) => {
   return (
     <div className="covicalc--nav">
       <div className="logo">
-        <h1>covicalc</h1>
+        <Link to="/" className="covicalc--title covicalc--text-white ">
+          covicalc
+        </Link>
       </div>
-      <Button className="covicalc--primary-btn" type="primary">
-        Contact
-      </Button>
+      <div>
+        <Button
+          size="large"
+          className="covicalc--primary-btn covicalc--text small--devices"
+          type="primary"
+          onClick={goToContact}
+        >
+          Contact
+        </Button>
+      </div>
     </div>
   );
 };

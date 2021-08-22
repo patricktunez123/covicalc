@@ -1,20 +1,62 @@
 import React from "react";
-import ContinentsList from "./ContinentsList";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import ContinentCard from "./ContinentCard";
+import { Spin } from "antd";
 import "./Continents.scss";
 
-const Continents = () => {
+const Continents = ({ loading, continents, countryLoading, country }) => {
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 2,
+      paritialVisibilityGutter: 50,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+      paritialVisibilityGutter: 0,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+      paritialVisibilityGutter: 0,
+    },
+  };
+
   return (
     <div className="covicalc--continents">
-      <div className="info__bottom">
-        <div className="info__bottom--card">
-          text tkajsdf aksdfj ak kajdf kaj fdaj dsfkj adksfj kajsdf ad sfkja
-          dfkj akdsjf kajsd fkja sdkfj aksdjf kajsd fkja ksdfj kajsdf kajs dkfj
-          aksdjf kajsdf kajs dkfja ksdfj kasdjf kjasdkfj ksdk
+      <div className="section-title">
+        <h1 className="covicalc--title covicalc--mb-large covicalc--text-black">
+          Per continent
+        </h1>
+      </div>
+      {loading ? (
+        <div className="loading--container">
+          <p>
+            <Spin />
+          </p>
         </div>
-      </div>
-      <div className="continents--container">
-        <ContinentsList />
-      </div>
+      ) : (
+        <Carousel
+          partialVisible={true}
+          centerMode={false}
+          arrows
+          slidesToSlide={1}
+          itemClass="image-item"
+          className="covicalc--slide"
+          responsive={responsive}
+        >
+          {continents &&
+            continents.map((continent) => (
+              <ContinentCard key={continent?.continent} {...continent} />
+            ))}
+        </Carousel>
+      )}
     </div>
   );
 };

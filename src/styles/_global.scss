@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 @import "./variables.scss";
 @import "./buttons.scss";
 
@@ -6,6 +7,16 @@
 *::after,
 *::before {
   box-sizing: border-box;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -15,11 +26,89 @@ body {
   object-fit: contain;
   font-size: 16px;
 }
-.section-title {
-  font-size: 2rem;
-  text-transform: uppercase;
+
+.covicalc--title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.2rem;
 }
-.section-sub-title {
+.covicalc--title,
+.covicalc--sub--title {
+  text-transform: uppercase;
+  font-family: "Bebas Neue", cursive;
+}
+.covicalc--sub--title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $blackColor;
+}
+
+.covicalc--text {
+  font-size: 0.9rem;
+}
+.covicalc--large--text {
+  font-size: 4rem;
+}
+.covicalc--medium--text {
+  font-size: 1.5rem;
+}
+.covicalc--text-light {
+  font-weight: 300;
+}
+.covicalc--text-bold {
+  font-weight: 700;
+}
+.covicalc--text-white {
+  color: $whiteColor;
+}
+.covicalc--text-black {
+  color: $blackColor;
+}
+.covicalc--text-green {
+  color: $primaryColor;
+}
+.covicalc--text-muted {
+  color: $muteColor;
+}
+.covicalc--text-dark {
+  color: $darkWhite;
+}
+.covicalc--link-primary {
+  &:hover {
+    color: $whiteColor;
+    text-decoration: underline;
+  }
+}
+.covicalc--link-secondary {
+  &:hover {
+    color: $primaryColor;
+    text-decoration: underline;
+  }
+}
+
+.covicalc--mt-1 {
+  margin-top: 1rem;
+}
+.covicalc--mt-2 {
+  margin-top: 2rem;
+}
+.covicalc--mb-1 {
+  margin-bottom: 1rem;
+}
+.covicalc--mb-2 {
+  margin-bottom: 2rem;
+}
+.covicalc--mb-small {
+  margin-bottom: 0.3rem;
+}
+.covicalc--mb-large {
+  margin-bottom: 4rem;
+}
+
+.ant-picker-input {
+  input {
+    border: 0px;
+  }
 }
 ::-webkit-scrollbar {
   width: 0.5em;
@@ -35,4 +124,20 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #cfc8c8;
+}
+
+@media screen and (max-width: $breakpoint-small),
+  (max-width: $breakpoint-medium) {
+  .small--devices {
+    display: none;
+  }
+  .covicalc--title {
+    font-size: 1rem;
+  }
+  .covicalc--large--text {
+    font-size: 1.5rem;
+  }
+  .covicalc--medium--text {
+    font-size: 1rem;
+  }
 }

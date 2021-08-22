@@ -1,13 +1,13 @@
 @import "../../styles/variables.scss";
 
 .tunez-contact {
-  height: 80vh;
+  min-height: 80vh;
   background: $primaryColor;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  p {
+  .contact--info {
     display: flex;
     justify-content: center;
     align-items: center;

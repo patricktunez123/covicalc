@@ -11,16 +11,18 @@ function App() {
     <Fragment>
       <Suspense
         fallback={
-          <div
-            style={{
-              height: "100vh",
-              width: "100%",
-              textAlign: "center",
-              paddingTop: "calc(50vh - 7px)",
-            }}
-          >
-            <Spin />
-          </div>
+          <Layout>
+            <div
+              style={{
+                height: "100vh",
+                width: "100%",
+                textAlign: "center",
+                paddingTop: "calc(50vh - 7px)",
+              }}
+            >
+              <Spin />
+            </div>
+          </Layout>
         }
       >
         <Switch>

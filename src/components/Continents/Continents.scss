@@ -1,89 +1,90 @@
 @import "../../styles/variables.scss";
 
 .covicalc--continents {
-  min-height: 90vh;
+  min-height: 100vh;
+
+  padding-top: 13rem;
+  padding-bottom: 5rem;
+  padding-right: 0;
+  padding-left: 0;
   width: 100%;
-  position: relative;
-  .info__bottom {
-    position: relative;
-    width: 100%;
+
+  .loading--container {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    .info__bottom--card {
-      box-shadow: 0.1rem 0.1rem 1rem $borderColor;
-      width: 50%;
-      position: absolute;
-      top: 0;
-      padding: 2rem;
-      border-bottom-left-radius: $borderRadius;
-      border-bottom-right-radius: $borderRadius;
-    }
   }
-  .continents--container {
-    height: auto;
-    padding: 2rem 0;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
+  .section-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .covicalc--c-card {
-      width: auto;
-      height: auto;
-      box-shadow: 0.1rem 0.1rem 1rem $borderColor;
-      margin-right: 1rem;
-      border-radius: $borderRadius;
+  .covicalc--c-card {
+    width: auto;
+    height: auto;
+    box-shadow: 0.1rem 0.1rem 1rem $borderColor;
+    margin-right: 1rem;
+    border-radius: $borderRadius;
+    display: flex;
+    justify-content: space-between;
+    .left,
+    .right {
+      min-height: 100%;
+      flex: 1;
+    }
+    .left {
+      background: $whiteColor;
+      border-top-left-radius: $borderRadius;
+      border-bottom-left-radius: $borderRadius;
+    }
+    .right,
+    .left {
       display: flex;
-      justify-content: space-between;
-      .left,
-      .right {
-        height: 100%;
-        flex: 1;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .right {
+      background: $primaryColor;
+      border-top-right-radius: $borderRadius;
+      border-bottom-right-radius: $borderRadius;
+      .deaths,
+      .recovered {
+        border-bottom: 0.1rem solid $secondaryColor;
       }
-      .left {
-        background: $whiteColor;
-        border-top-left-radius: $borderRadius;
-        border-bottom-left-radius: $borderRadius;
-      }
-      .right,
-      .left {
+      .deaths,
+      .recovered,
+      .vaccinated {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-      }
-      .right {
-        background: $primaryColor;
-        border-top-right-radius: $borderRadius;
-        border-bottom-right-radius: $borderRadius;
-        .deaths,
-        .recovered,
-        .vaccinated {
-          border-bottom: 0.1rem solid $secondaryColor;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          padding: 1rem;
-          span {
-            font-size: 0.8rem;
-          }
-        }
-      }
-
-      .left {
-        .name,
-        .cases,
-        .all--cases {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          padding: 1rem;
-        }
+        padding: 1rem;
       }
     }
+
+    .left {
+      .name,
+      .cases,
+      .all--cases {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+.covicalc--slide {
+  background: $whiteColor;
+  padding: 2rem 0;
+}
+@media screen and (max-width: $breakpoint-small),
+  (max-width: $breakpoint-medium) {
+  .covicalc--c-card {
+    flex-direction: column;
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import Footer from "../Footer";
 import Nav from "../Nav";
+import Mobile from "../Nav/Mobile";
 import "./Layout.scss";
 
 const Layout = ({ children }) => {
@@ -9,6 +10,7 @@ const Layout = ({ children }) => {
       <Nav />
       <div className="covicalc--container">{children}</div>
       <Footer />
+      <Mobile />
     </div>
   );
 };

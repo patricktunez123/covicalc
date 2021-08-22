@@ -31,21 +31,17 @@ $padding-top-2: 2.5rem;
 $padding-bottom-2: 2.5rem;
 
 /**
- * margins
- * App's margins
-  * Author: Patrick TUNEZERWANE
- */
-
-/**
- * sections' backgrounds
- * App's sections' backgrounds
-  * Author: Patrick TUNEZERWANE
- */
-
-/**
  * Borders radius
  * App's Borders radius
   * Author: Patrick TUNEZERWANE
  */
 
 $borderRadius: 0.3rem;
+
+/**
+ * Breakpoints
+ * App's Breakpoints
+  * Author: Patrick TUNEZERWANE
+ */
+$breakpoint-medium: 1224px;
+$breakpoint-small: 520px;

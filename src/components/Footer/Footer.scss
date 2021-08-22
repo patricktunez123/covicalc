@@ -1,9 +1,19 @@
 @import "../../styles/variables.scss";
 
 .covicalc-footer {
-  padding: 2rem 0;
+  padding: $padding-2;
   background: $secondaryColor;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: $breakpoint-small),
+  (max-width: $breakpoint-medium) {
+  .covicalc-footer {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-bottom: 10rem;
+  }
 }
